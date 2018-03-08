@@ -1,3 +1,7 @@
+<ul id="scores">
+  <li id="totalScore">{{totalScore}}</li>
+  <li id="percentCorrect">{{percentCorrect}}%</li>
+</ul>
 <h1>{{currentWord}}</h1>
 <div>
   <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" >
@@ -5,6 +9,6 @@
 
 <ul>
   <li *ngFor="let attempt of attempts">
-    <span class="{{attempt.correct}}">{{attempt.spelling}}</span>
+    <span class="{{attempt.won}}">{{attempt.word}}</span>
   </li>
 </ul>
