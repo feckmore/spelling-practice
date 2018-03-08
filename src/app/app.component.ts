@@ -75,38 +75,48 @@ export class AppComponent {
     let lowerCaseWord:string = this.currentWord.toLowerCase();
     let attemptWord:string = word.toLowerCase();
 
-    if (lowerCaseWord === attemptWord) { // spelled entire word correctly
-      this.clearWord();
-      this.previousWordsScore += targetWord.length + 10;
-      this.totalScore = this.previousWordsScore;
-      let attempt:Attempt = {word: targetWord, won: true};
-      this.attempts.unshift(attempt);
-      let data: string = JSON.stringify(this.attempts);
-      localStorage.setItem(localStorageKey, data);
-      this.playSound(["crowd-cheer","person-cheering","air-horn","short-applause","music-box","magic-wand","yes-a","slot-machine","dixie-horn","train-whistle","alert-1","alert-2","alert-3","alert-4","alert-5","fart","gibbon","puppy","glass-ping"]);
+    if (lowerCaseWord === attemptWord) { 
+      this.wordSpelledCorrectly(targetWord);
     } else if (lowerCaseWord.startsWith(attemptWord)){ // still spelling, still correct
       this.totalScore = this.previousWordsScore + attemptWord.length;
       this.playSound(["deep-click"]);
-    } else { // made a mistake
-      this.clearWord();
-      this.previousWordsScore -= 50;
-      this.totalScore = this.previousWordsScore;
-      let attempt:Attempt = {word: targetWord, won: false};
-      this.attempts.unshift(attempt);
-      let data: string = JSON.stringify(this.attempts);
-      localStorage.setItem(localStorageKey, data);
-      this.playSound(["door-buzzer"]);
+    } else { 
+      this.wordSpelledIncorrectly(targetWord);
     }
   }
 
-  async clearWord(){
+  wordSpelledCorrectly(word:string){
+    this.clearWord(true);
+    this.previousWordsScore += word.length + 10;
+    this.totalScore = this.previousWordsScore;
+    let attempt:Attempt = {word: word, won: true};
+    this.attempts.unshift(attempt);
+    let data: string = JSON.stringify(this.attempts);
+    localStorage.setItem(localStorageKey, data);
+    this.playSound(["crowd-cheer","person-cheering","air-horn","short-applause","music-box","magic-wand","yes-a","slot-machine","dixie-horn","train-whistle","alert-1","alert-2","alert-3","alert-4","alert-5","fart","gibbon","puppy","glass-ping"]);
+  }
+
+  wordSpelledIncorrectly(word:string){
+    this.clearWord(false);
+    this.previousWordsScore -= 50;
+    this.totalScore = this.previousWordsScore;
+    let attempt:Attempt = {word: word, won: false};
+    this.attempts.unshift(attempt);
+    let data: string = JSON.stringify(this.attempts);
+    localStorage.setItem(localStorageKey, data);
+    this.playSound(["door-buzzer"]);
+  }
+
+  async clearWord(newWord:boolean){
     this.spellingInput.nativeElement.disabled = true;
 
     await this.delay(1500);
     this.spelledWord = '';
     this.spellingInput.nativeElement.disabled = false;
     this.spellingInput.nativeElement.focus();
-    this.selectNewWord();
+    if (newWord) {
+      this.selectNewWord();
+    }
   }
 
   delay(ms: number) {
