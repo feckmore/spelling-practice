@@ -26,8 +26,11 @@ export class AppComponent {
   words:string[] = [...this.latinWords, ...this.arabicWords, ...this.asianWords, ...this.frenchWords, ...this.eponyms, ...this.germanWords, ...this.slavicWords,
     ...this.dutchWords, ...this.oldEnglishWords, ...this.newWorldWords, ...this.japaneseWords, ...this.greekWords, ...this.italianWords, ...this.spanishWords];
 
+  wordsUntried:string[] = this.words.slice();
+
   spelledWord:string;
   currentWord:string;
+  currentWordIndex:number = -1;
   attempts:Attempt[] = [];
   previousWordsScore:number = 0;
   currentWordScore:number = 0;
@@ -49,7 +52,7 @@ export class AppComponent {
     if (current && current.length > 0) {
       this.currentWord = current;
     } else {
-      this.selectNewWord();
+      this.selectNewWord(false);
     }
     this.spellingInput.nativeElement.focus();
   }
@@ -69,8 +72,19 @@ export class AppComponent {
     this.totalScore = this.previousWordsScore;
   }
 
-  selectNewWord(){
-    this.currentWord = this.words[Math.floor(Math.random() * this.words.length)];
+  selectNewWord(removeLastWord:boolean){
+    if (removeLastWord && this.currentWordIndex >= 0) {
+      // remove last word from array
+      this.wordsUntried.splice(this.currentWordIndex, 1);
+    }
+
+    if (this.wordsUntried.length == 0){
+      // TODO: make a big deal that every word has been spelled!
+      this.wordsUntried = this.words.slice();
+    }
+
+    this.currentWordIndex = Math.floor(Math.random() * this.wordsUntried.length);
+    this.currentWord = this.wordsUntried[this.currentWordIndex];
     localStorage.setItem('spell-current-word', this.currentWord);
   }
 
@@ -122,7 +136,7 @@ export class AppComponent {
     this.spellingInput.nativeElement.disabled = false;
     this.spellingInput.nativeElement.focus();
     if (newWord) {
-      this.selectNewWord();
+      this.selectNewWord(true);
     }
   }
 
@@ -188,10 +202,11 @@ export class AppComponent {
     this.totalWords = 0;
     this.totalCorrect = 0;
     this.percentCorrect = 0;
+    this.wordsUntried = this.words.slice();
 
     localStorage.setItem('spell-current-word', '');
     localStorage.setItem('spelling-practice', '');
-    this.selectNewWord();
+    this.selectNewWord(false);
   }
 
 }
