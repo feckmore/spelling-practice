@@ -191,6 +191,7 @@ export class AppComponent {
 
     localStorage.setItem('spell-current-word', '');
     localStorage.setItem('spelling-practice', '');
+    this.selectNewWord();
   }
 
 }
