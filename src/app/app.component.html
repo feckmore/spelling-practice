@@ -10,7 +10,7 @@
 
 <h1>{{currentWord}}</h1>
 <div>
-  <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" >
+  <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
 </div>  
 
 <ul>

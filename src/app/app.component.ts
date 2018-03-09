@@ -25,7 +25,6 @@ export class AppComponent {
 
   words:string[] = [...this.latinWords, ...this.arabicWords, ...this.asianWords, ...this.frenchWords, ...this.eponyms, ...this.germanWords, ...this.slavicWords,
     ...this.dutchWords, ...this.oldEnglishWords, ...this.newWorldWords, ...this.japaneseWords, ...this.greekWords, ...this.italianWords, ...this.spanishWords];
-  // words = ['Test', 'This'];
 
   spelledWord:string;
   currentWord:string;
