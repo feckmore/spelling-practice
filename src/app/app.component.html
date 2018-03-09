@@ -1,3 +1,8 @@
+<h1>{{currentWord}}</h1>
+<div>
+  <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
+</div>  
+
 <div class="scoreContainer left">
   <div class="scoreCaption">SCORE</div>
   <div id="totalScore" class="score">{{totalScore}}</div>
@@ -8,11 +13,6 @@
   <div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
 </div>
 
-<h1>{{currentWord}}</h1>
-<div>
-  <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
-</div>  
-
 <ul>
   <li *ngFor="let attempt of attempts">
     <span class="{{attempt.won}}">{{attempt.word}}</span>
@@ -20,4 +20,3 @@
 </ul>
 
 <div id="resetContainer"><a href="#" (click)="resetGame()">RESET GAME</a></div>
-
