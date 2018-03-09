@@ -38,6 +38,7 @@ export class AppComponent {
   totalWords:number = 0;
   totalCorrect:number = 0;
   percentCorrect:number = 0;
+  showFireworks:boolean = false;
 
   constructor() { }
 
@@ -121,6 +122,7 @@ export class AppComponent {
   }
 
   wordSpelledCorrectly(word:string){
+    this.showFireworks = true;
     this.clearWord(true);
     this.totalWords += 1;
     this.totalCorrect += 1;
@@ -152,6 +154,7 @@ export class AppComponent {
     this.spelledWord = '';
     this.spellingInput.nativeElement.disabled = false;
     this.spellingInput.nativeElement.focus();
+    this.showFireworks = false;
     if (newWord) {
       this.selectNewWord(true);
     }

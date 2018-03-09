@@ -3,6 +3,13 @@
   <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
 </div>  
 
+<div class="pyro-container" [style.display]="showFireworks == true ? 'block' : 'none'">
+  <div class="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+  </div>
+</div>
+  
 <div class="scoreContainer left">
   <div class="scoreCaption">SCORE</div>
   <div id="totalScore" class="score">{{totalScore}}</div>
