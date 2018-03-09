@@ -1,7 +1,6 @@
-<ul id="scores">
-  <li id="totalScore">{{totalScore}}</li>
-  <li id="percentCorrect">{{percentCorrect}}%</li>
-</ul>
+<div id="totalScore" class="score">{{totalScore}}</div>
+<div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
+
 <h1>{{currentWord}}</h1>
 <div>
   <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" >

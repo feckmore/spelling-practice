@@ -35,6 +35,8 @@ export class AppComponent {
   previousWordsScore:number = 0;
   currentWordScore:number = 0;
   totalScore:number = 0;
+  totalWords:number = 0;
+  totalCorrect:number = 0;
   percentCorrect:number = 0;
 
   constructor() { }
@@ -54,8 +56,10 @@ export class AppComponent {
 
   scoreAttempts(){
     let i: number = 0;
+    this.totalWords = this.attempts.length;
     for (i = 0; i < this.attempts.length; i++) {
       if (this.attempts[i].won){
+        this.totalCorrect += 1;
         this.previousWordsScore += 10 + this.attempts[i].word.length;
       } else {
         this.previousWordsScore -= 50;
@@ -86,6 +90,8 @@ export class AppComponent {
 
   wordSpelledCorrectly(word:string){
     this.clearWord(true);
+    this.totalWords += 1;
+    this.totalCorrect += 1;
     this.previousWordsScore += word.length + 10;
     this.totalScore = this.previousWordsScore;
     let attempt:Attempt = {word: word, won: true};
@@ -97,6 +103,7 @@ export class AppComponent {
 
   wordSpelledIncorrectly(word:string){
     this.clearWord(false);
+    this.totalWords += 1;
     this.previousWordsScore -= 50;
     this.totalScore = this.previousWordsScore;
     let attempt:Attempt = {word: word, won: false};
