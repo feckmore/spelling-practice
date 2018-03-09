@@ -42,23 +42,40 @@ export class AppComponent {
   constructor() { }
 
   ngOnInit() {
+    // get the list of historical attempts from local storage
     let attemptsData:string = localStorage.getItem('spelling-practice');
     if (attemptsData && attemptsData.length > 0){
       this.attempts = JSON.parse(attemptsData);
     }
+    // go through historical attempts and calculate score
     this.scoreAttempts();
-
+    // get the last "current word" from local storage, or select a new one if none found
     let current:string = localStorage.getItem('spell-current-word');
     if (current && current.length > 0) {
       this.currentWord = current;
     } else {
       this.selectNewWord(false);
     }
+    // go through list of historic attempts and filter out to get list of words not yet tried
+    this.filterWordAttemptsFromWordsUntried();
+
+    // now focus in the input box
     this.spellingInput.nativeElement.focus();
   }
 
+  filterWordAttemptsFromWordsUntried(){
+    let i:number;
+    for(i = 0; i < this.attempts.length; i++) {
+      let word = this.attempts[i].word;
+      let wordIndex:number = this.wordsUntried.indexOf(word);
+      if (wordIndex >= 0 && word != this.currentWord) {
+        this.wordsUntried.splice(wordIndex, 1);
+      }
+    }
+  }
+
   scoreAttempts(){
-    let i: number = 0;
+    let i: number;
     this.totalWords = this.attempts.length;
     for (i = 0; i < this.attempts.length; i++) {
       if (this.attempts[i].won){
