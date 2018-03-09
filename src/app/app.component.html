@@ -1,5 +1,11 @@
-<div id="totalScore" class="score">{{totalScore}}</div>
-<div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
+<div class="scoreContainer left">
+  <div class="scoreCaption">SCORE</div>
+  <div id="totalScore" class="score">{{totalScore}}</div>
+</div>
+<div class="scoreContainer right">
+  <div class="scoreCaption">{{totalCorrect}} / {{totalWords}}</div>
+  <div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
+</div>
 
 <h1>{{currentWord}}</h1>
 <div>

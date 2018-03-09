@@ -15,23 +15,29 @@ h1{
 }
 
 .score {
-  // border: 2px solid #aaaaaa;
-  // border-radius: 2rem;
-  padding: 1rem;
+  font-size: 4rem;
   height: 5rem;
+  color: cornflowerblue;
+  margin: 0px;
 }
 
-#totalScore {
-  font-size: 4rem;
-  margin-left: 20px;
-  color: blue;
+.scoreCaption{
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #aaaaaa;
+}
+
+.scoreContainer{
+  text-align: center;
+  float: left;
+  margin: 0 25px;
+}
+
+.left {
   float: left;
 }
 
-#percentCorrect {
-  font-size: 3rem;
-  margin-right: 20px;
-  color: green;
+.right {
   float: right;
 }
 
