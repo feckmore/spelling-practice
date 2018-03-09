@@ -1,7 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 
-const localStorageKey:string = 'spelling-practice';
-
 @Component({
   selector: 'spell-root',
   templateUrl: './app.component.html',
@@ -42,15 +40,18 @@ export class AppComponent {
   constructor() { }
 
   ngOnInit() {
-    let data:string = localStorage.getItem(localStorageKey);
-    console.log('stored game: ', data);
-    if (data && data.length > 0){
-      this.attempts = JSON.parse(data);
+    let attemptsData:string = localStorage.getItem('spelling-practice');
+    if (attemptsData && attemptsData.length > 0){
+      this.attempts = JSON.parse(attemptsData);
     }
-
     this.scoreAttempts();
 
-    this.selectNewWord();
+    let current:string = localStorage.getItem('spell-current-word');
+    if (current && current.length > 0) {
+      this.currentWord = current;
+    } else {
+      this.selectNewWord();
+    }
     this.spellingInput.nativeElement.focus();
   }
 
@@ -71,6 +72,7 @@ export class AppComponent {
 
   selectNewWord(){
     this.currentWord = this.words[Math.floor(Math.random() * this.words.length)];
+    localStorage.setItem('spell-current-word', this.currentWord);
   }
 
   wordChange(word: string) {
@@ -97,7 +99,7 @@ export class AppComponent {
     let attempt:Attempt = {word: word, won: true};
     this.attempts.unshift(attempt);
     let data: string = JSON.stringify(this.attempts);
-    localStorage.setItem(localStorageKey, data);
+    localStorage.setItem('spelling-practice', data);
     this.playSound(["crowd-cheer","person-cheering","air-horn","short-applause","music-box","magic-wand","yes-a","slot-machine","dixie-horn","train-whistle","alert-1","alert-2","alert-3","alert-4","alert-5","fart","gibbon","puppy","glass-ping"]);
   }
 
@@ -109,7 +111,7 @@ export class AppComponent {
     let attempt:Attempt = {word: word, won: false};
     this.attempts.unshift(attempt);
     let data: string = JSON.stringify(this.attempts);
-    localStorage.setItem(localStorageKey, data);
+    localStorage.setItem('spelling-practice', data);
     this.playSound(["door-buzzer"]);
   }
 
