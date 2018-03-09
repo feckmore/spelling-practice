@@ -53,11 +53,10 @@ export class AppComponent {
   }
 
   scoreAttempts(){
-    console.log('scoring attempts');
     let i: number = 0;
     for (i = 0; i < this.attempts.length; i++) {
       if (this.attempts[i].won){
-        this.previousWordsScore += this.attempts[i].word.length;
+        this.previousWordsScore += 10 + this.attempts[i].word.length;
       } else {
         this.previousWordsScore -= 50;
       }
