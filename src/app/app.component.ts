@@ -178,6 +178,21 @@ export class AppComponent {
     this.playSound(src);
   }
 
+  resetGame(){
+    this.spelledWord = '';
+    this.currentWord = '';
+    this.attempts = [];
+    this.previousWordsScore = 0;
+    this.currentWordScore = 0;
+    this.totalScore = 0;
+    this.totalWords = 0;
+    this.totalCorrect = 0;
+    this.percentCorrect = 0;
+
+    localStorage.setItem('spell-current-word', '');
+    localStorage.setItem('spelling-practice', '');
+  }
+
 }
 
 interface Attempt {
