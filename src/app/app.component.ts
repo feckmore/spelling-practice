@@ -79,6 +79,7 @@ export class AppComponent {
   }
 
   selectNewWord(removeLastWord:boolean){
+    console.log('untried words: ' + this.wordsUntried.length)
     if (removeLastWord && this.currentWordIndex >= 0) {
       // remove last word from array
       this.wordsUntried.splice(this.currentWordIndex, 1);
