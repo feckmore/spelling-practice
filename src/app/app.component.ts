@@ -168,7 +168,7 @@ export class AppComponent implements OnInit {
   }
 
   playSoundIncorrect() {
-    this.playSound('http://soundbible.com/mp3/Door Buzzer-SoundBible.com-1567875395.mp3');
+    this.playSound('https://soundbible.com/mp3/Door Buzzer-SoundBible.com-1567875395.mp3');
   }
 
   playSoundKeypress() {
@@ -177,32 +177,32 @@ export class AppComponent implements OnInit {
     // http://soundbible.com/mp3/Click2-Sebastian-759472264.mp3
     // http://soundbible.com/mp3/Blop-Mark_DiAngelo-79054334.mp3
     // http://soundbible.com/mp3/Woosh-Mark_DiAngelo-4778593.mp3
-    this.playSound('http://soundbible.com/mp3/Click-SoundBible.com-1387633738.mp3');
+    this.playSound('https://soundbible.com/mp3/Click-SoundBible.com-1387633738.mp3');
   }
 
   playSoundCorrect() {
     const funSoundSources: string[] = [
-      'http://soundbible.com/mp3/Air Horn-SoundBible.com-964603082.mp3', 'http://soundbible.com/mp3/1_person_cheering-Jett_Rifkin-1851518140.mp3',
-      'http://soundbible.com/mp3/SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3', 'http://soundbible.com/mp3/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3',
-      'http://soundbible.com/mp3/Music_Box-Big_Daddy-1389738694.mp3', 'http://soundbible.com/mp3/Magic Wand Noise-SoundBible.com-375928671.mp3',
-      'http://soundbible.com/mp3/Yess-Fabio_Farinelli-187689388.mp3', 'http://soundbible.com/mp3/front-desk-bells-daniel_simon.mp3',
-      'http://soundbible.com/mp3/slot-machine-daniel_simon.mp3', 'http://soundbible.com/mp3/dixie-horn_daniel-simion.mp3',
-      'http://soundbible.com/mp3/steam-train-whistle-daniel_simon.mp3', 'http://soundbible.com/mp3/sms-alert-1-daniel_simon.mp3',
-      'http://soundbible.com/mp3/sms-alert-2-daniel_simon.mp3', 'http://soundbible.com/mp3/sms-alert-3-daniel_simon.mp3',
-      'http://soundbible.com/mp3/sms-alert-4-daniel_simon.mp3', 'http://soundbible.com/mp3/sms-alert-5-daniel_simon.mp3',
-      'http://soundbible.com/mp3/Fart-Squeeze-Yer-Knees_Mike-Koenig.mp3', 'http://soundbible.com/mp3/gibbon-monkey-daniel_simon.mp3',
-      'http://soundbible.com/mp3/puppy-barking_ds.mp3', 'http://soundbible.com/mp3/glass_ping-Go445-1207030150.mp3',
-      'http://soundbible.com/mp3/Audience_Applause-Matthiew11-1206899159.mp3', 'http://soundbible.com/mp3/Silly_Farts-Joe-1473367952.mp3',
-      'http://soundbible.com/mp3/Coin_Drop-Willem_Hunt-569197907.mp3', 'http://soundbible.com/mp3/UFO_Takeoff-Sonidor-1604321570.mp3',
-      'http://soundbible.com/mp3/descending_craft-Sonidor-991848481.mp3', 'http://soundbible.com/mp3/Rudy_rooster_crowing-Shelley-1948282641.mp3',
-      'http://soundbible.com/mp3/Kid_Laugh-Mike_Koenig-1673908713.mp3', 'http://soundbible.com/mp3/Cha_Ching_Register-Muska666-173262285.mp3',
-      'http://soundbible.com/mp3/running_feet_-Cam-942211296.mp3', 'http://soundbible.com/mp3/Falcon-Mark_Mattingly-169493032.mp3',
-      'http://soundbible.com/mp3/Cat_Meow_2-Cat_Stevens-2034822903.mp3', 'http://soundbible.com/mp3/Turkey_Call_2-JimBob-26023545.mp3',
-      'http://soundbible.com/mp3/hello_son-Mike_Koenig-810187901.mp3', 'http://soundbible.com/mp3/Turkey_Call-JimBob-1691466258.mp3',
-      'http://soundbible.com/mp3/bye_bye_son-Mike_Koenig-1260922981.mp3', 'http://soundbible.com/mp3/short_male_burp-Mike_Koenig-832127430.mp3',
-      'http://soundbible.com/mp3/mallard_duck_quacking-Mike_Koenig-1781775990.mp3', 'http://soundbible.com/mp3/Metroid_Door-Brandino480-995195341.mp3',
-      'http://soundbible.com/mp3/mallard_duck-Mike_Koenig-667013646.mp3', 'http://soundbible.com/mp3/killdeer_song-Mike_Koenig-1144525481.mp3',
-      'http://soundbible.com/mp3/Children_Laughing-Mike_Koenig-575083331.mp3', 'http://soundbible.com/mp3/Warbling_Vireo-Mike_Koenig-89869915.mp3'
+      'https://soundbible.com/mp3/Air Horn-SoundBible.com-964603082.mp3', 'https://soundbible.com/mp3/1_person_cheering-Jett_Rifkin-1851518140.mp3',
+      'https://soundbible.com/mp3/SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3', 'https://soundbible.com/mp3/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3',
+      'https://soundbible.com/mp3/Music_Box-Big_Daddy-1389738694.mp3', 'https://soundbible.com/mp3/Magic Wand Noise-SoundBible.com-375928671.mp3',
+      'https://soundbible.com/mp3/Yess-Fabio_Farinelli-187689388.mp3', 'https://soundbible.com/mp3/front-desk-bells-daniel_simon.mp3',
+      'https://soundbible.com/mp3/slot-machine-daniel_simon.mp3', 'https://soundbible.com/mp3/dixie-horn_daniel-simion.mp3',
+      'https://soundbible.com/mp3/steam-train-whistle-daniel_simon.mp3', 'https://soundbible.com/mp3/sms-alert-1-daniel_simon.mp3',
+      'https://soundbible.com/mp3/sms-alert-2-daniel_simon.mp3', 'https://soundbible.com/mp3/sms-alert-3-daniel_simon.mp3',
+      'https://soundbible.com/mp3/sms-alert-4-daniel_simon.mp3', 'https://soundbible.com/mp3/sms-alert-5-daniel_simon.mp3',
+      'https://soundbible.com/mp3/Fart-Squeeze-Yer-Knees_Mike-Koenig.mp3', 'https://soundbible.com/mp3/gibbon-monkey-daniel_simon.mp3',
+      'https://soundbible.com/mp3/puppy-barking_ds.mp3', 'https://soundbible.com/mp3/glass_ping-Go445-1207030150.mp3',
+      'https://soundbible.com/mp3/Audience_Applause-Matthiew11-1206899159.mp3', 'https://soundbible.com/mp3/Silly_Farts-Joe-1473367952.mp3',
+      'https://soundbible.com/mp3/Coin_Drop-Willem_Hunt-569197907.mp3', 'https://soundbible.com/mp3/UFO_Takeoff-Sonidor-1604321570.mp3',
+      'https://soundbible.com/mp3/descending_craft-Sonidor-991848481.mp3', 'https://soundbible.com/mp3/Rudy_rooster_crowing-Shelley-1948282641.mp3',
+      'https://soundbible.com/mp3/Kid_Laugh-Mike_Koenig-1673908713.mp3', 'https://soundbible.com/mp3/Cha_Ching_Register-Muska666-173262285.mp3',
+      'https://soundbible.com/mp3/running_feet_-Cam-942211296.mp3', 'https://soundbible.com/mp3/Falcon-Mark_Mattingly-169493032.mp3',
+      'https://soundbible.com/mp3/Cat_Meow_2-Cat_Stevens-2034822903.mp3', 'https://soundbible.com/mp3/Turkey_Call_2-JimBob-26023545.mp3',
+      'https://soundbible.com/mp3/hello_son-Mike_Koenig-810187901.mp3', 'https://soundbible.com/mp3/Turkey_Call-JimBob-1691466258.mp3',
+      'https://soundbible.com/mp3/bye_bye_son-Mike_Koenig-1260922981.mp3', 'https://soundbible.com/mp3/short_male_burp-Mike_Koenig-832127430.mp3',
+      'https://soundbible.com/mp3/mallard_duck_quacking-Mike_Koenig-1781775990.mp3', 'https://soundbible.com/mp3/Metroid_Door-Brandino480-995195341.mp3',
+      'https://soundbible.com/mp3/mallard_duck-Mike_Koenig-667013646.mp3', 'https://soundbible.com/mp3/killdeer_song-Mike_Koenig-1144525481.mp3',
+      'https://soundbible.com/mp3/Children_Laughing-Mike_Koenig-575083331.mp3', 'https://soundbible.com/mp3/Warbling_Vireo-Mike_Koenig-89869915.mp3'
     ];
     const src = funSoundSources[Math.floor(Math.random() * funSoundSources.length)];
     this.playSound(src);
