@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 
 import { WordService } from './word.service';
+import { flushMicrotasks } from '@angular/core/testing';
 
 @Component({
   selector: 'spell-root',
@@ -25,13 +26,14 @@ export class AppComponent implements OnInit {
   totalWords = 0;
   totalCorrect = 0;
   percentCorrect = 0;
-  startingGrade = 3;
+  startingGrade = 4;
   showFireworks = false;
 
   constructor(private wordService: WordService) { }
 
   ngOnInit() {
     this.words = this.wordService.get2018Words(this.startingGrade);
+
     this.wordsUntried = this.words.slice();
 
     // get the list of historical attempts from local storage

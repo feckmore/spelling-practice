@@ -39,7 +39,7 @@ export class WordService {
   gradeFiveSix2018: string[] = ['warped', 'flail', 'clanging', 'qualify', 'solely', 'refined', 'plodding', 'Japanese', 'advanced', 'sensible', 'beneath', 'penalty', 'mockingly', 'compartment', 'achieve', 'hoisted', 'doffing', 'banishment', 'furled', 'immune', 'volley', 'perish', 'dismissal', 'temporary', 'anthem', 'rebuked', 'garret', 'irked', 'prickliness', 'narration', 'dormer', 'realization', 'supposedly', 'ruefully', 'guise', 'pennant', 'fulcrum', 'recognition', 'governess', 'conquering', 'alabaster', 'tendrils', 'invariably', 'scrimmage', 'procession', 'writhing', 'rosette', 'medicinal', 'conservatory', 'miniature'];
   gradeSixSeven2018: string[] = ['accompany', 'fiddle-faddle', 'pronto', 'calculus', 'fugitive', 'percussion', 'siesta', 'hilarious', 'cooperage', 'paramedic', 'humanitarian', 'culprits', 'stagnant', 'diabolical', 'buzzard', 'martyr', 'garbanzo', 'cliques', 'antagonism', 'couriers', 'miscreant', 'peasantry', 'homily', 'suffocate', 'cavil', 'apprehend', 'guava', 'penitent', 'vexation', 'cherished', 'sturgeon', 'clavicle', 'damask', 'abolition', 'extricates', 'lustrous', 'diminutive', 'sepia', 'rivulets', 'barbarous', 'sagacity', 'gangrene', 'chilblains', 'Jacuzzi', 'pad', 'thai', 'relinquish', 'Caribbean', 'hibiscus', 'jefe', 'Xanadu'];
   gradeSevenEight2018: string[] = ['pegasi', 'armada', 'promenade', 'vocational', 'reprimand', 'eclair', 'indelible', 'cologne', 'gondolier', 'muttonchops', 'cliches', 'impregnable', 'trenchant', 'catacombs', 'salutation', 'dervishes', 'consonants', 'velveteen', 'galleon', 'wastrels', 'redundancy', 'inertia', 'bronchitis', 'juniper', 'haberdashery', 'offal', 'garrison', 'felicitously', 'treacle', 'attenuated', 'valise', 'dissertation', 'recompense', 'piedmont', 'sumptuous', 'portentously', 'antecedents', 'gaiters', 'sachet', 'chloroform', 'metallurgy', 'Prague', 'balsam', 'emaciated', 'kelpies', 'corrugated', 'amethyst', 'chivalrous', 'phalanx', 'cyanide'];
-  gradeEightChallange2018: string[] = ['galette', 'noisome', 'munificent', 'affidavit', 'glutinous', 'Babylon', 'docile', 'tetrarch', 'frippery', 'homo', 'sapiens', 'ligatures', 'grenadier', 'canapes', 'voltaic', 'espionage', 'rapacious', 'prevaricate', 'acclamations', 'Harlequin', 'fascist', 'savanna', 'balaclavas', 'courteous', 'aphorism', 'diffidence', 'cinnabar', 'eviscerated', 'unguents', 'concertina', 'electrolysis', 'asseveration', 'lobelia', 'balustrades', 'expiation', 'flambeau', 'solomon', 'ambuscade', 'execrations', 'fuchsia', 'proboscis', 'exordium', 'Leipzig', 'phaeton', 'marengo', 'jacquerie', 'beryllium', 'ichor', 'tergiversation', 'mille-feuille', 'auf Wiedersehen'];
+  gradeEightChallange2018: string[] = ['galette', 'noisome', 'munificent', 'affidavit', 'glutinous', 'Babylon', 'docile', 'tetrarch', 'frippery', 'homo sapiens', 'ligatures', 'grenadier', 'canapes', 'voltaic', 'espionage', 'rapacious', 'prevaricate', 'acclamations', 'Harlequin', 'fascist', 'savanna', 'balaclavas', 'courteous', 'aphorism', 'diffidence', 'cinnabar', 'eviscerated', 'unguents', 'concertina', 'electrolysis', 'asseveration', 'lobelia', 'balustrades', 'expiation', 'flambeau', 'solomon', 'ambuscade', 'execrations', 'fuchsia', 'proboscis', 'exordium', 'Leipzig', 'phaeton', 'marengo', 'jacquerie', 'beryllium', 'ichor', 'tergiversation', 'mille-feuille', 'auf Wiedersehen'];
 
   // words2018: string[] = [...this.gradeOne2018, ...this.gradeOneTwo2018, ...this.gradeTwoThree2018, ...this.gradeThreeFour2018, ...this.gradeFourFive2018, ...this.gradeFiveSix2018, ...this.gradeSixSeven2018, ...this.gradeSevenEight2018, ...this.gradeEightChallange2018];
 
@@ -50,36 +50,35 @@ export class WordService {
   }
 
   get2018Words(startingGrade: number): string[] {
-    let words: string[];
+    let words: string[] = [];
     if (startingGrade < 1 || startingGrade > 9) { startingGrade = 1; }
     switch (startingGrade) {
       case 1:
-        words = [...this.gradeOne2018];
+        words = words.concat(this.gradeOne2018);
         /* falls through */
       case 2:
-        words = [...this.gradeOneTwo2018, ...words];
+        words = words.concat(this.gradeOneTwo2018);
         /* falls through */
       case 3:
-        words = [...this.gradeTwoThree2018, ...words];
+        words = words.concat(this.gradeTwoThree2018);
         /* falls through */
       case 4:
-        words = [...this.gradeThreeFour2018, ...words];
+        words = words.concat(this.gradeThreeFour2018);
         /* falls through */
       case 5:
-        words = [...this.gradeFourFive2018, ...words];
+        words = words.concat(this.gradeFourFive2018);
         /* falls through */
       case 6:
-        words = [...this.gradeFiveSix2018, ...words];
+        words = words.concat(this.gradeFiveSix2018);
         /* falls through */
       case 7:
-        words = [...this.gradeSixSeven2018, ...words];
+        words = words.concat(this.gradeSixSeven2018);
         /* falls through */
       case 8:
-        words = [...this.gradeSevenEight2018, ...words];
+        words = words.concat(this.gradeSevenEight2018);
         /* falls through */
       case 9:
-        words = [...this.gradeEightChallange2018, ...words];
-
+        words = words.concat(this.gradeEightChallange2018);
     }
     return words;
   }
