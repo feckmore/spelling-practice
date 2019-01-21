@@ -1,7 +1,7 @@
-<h1>{{currentWord}}</h1>
+<h1><a href="http://m-w.com/dictionary/{{currentWord}}" target="_blank">{{currentWord}}</a></h1>
 <div>
   <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
-</div>  
+</div>
 
 <div class="pyro-container" [style.display]="showFireworks == true ? 'block' : 'none'">
   <div class="pyro">
@@ -9,7 +9,7 @@
     <div class="after"></div>
   </div>
 </div>
-  
+
 <div class="scoreContainer left">
   <div class="scoreCaption">SCORE</div>
   <div id="totalScore" class="score">{{totalScore}}</div>
@@ -27,3 +27,5 @@
 </ul>
 
 <div id="resetContainer"><a href="#" (click)="resetGame()">RESET GAME</a></div>
+
+<div>{{ myWords | json }}</div>
