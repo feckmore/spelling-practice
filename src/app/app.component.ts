@@ -29,12 +29,12 @@ export class AppComponent implements OnInit {
   startingGrade = 5;
   showFireworks = false;
 
-  myWords = {};
+  // myWords = {};
 
   constructor(private wordService: WordService) { }
 
   ngOnInit() {
-    this.myWords = this.wordService.wordsToJSON();
+    // this.myWords = this.wordService.wordsToJSON();
 
     this.words = this.wordService.get2018Words(this.startingGrade);
 
