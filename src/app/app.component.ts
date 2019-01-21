@@ -26,12 +26,16 @@ export class AppComponent implements OnInit {
   totalWords = 0;
   totalCorrect = 0;
   percentCorrect = 0;
-  startingGrade = 4;
+  startingGrade = 5;
   showFireworks = false;
+
+  myWords = {};
 
   constructor(private wordService: WordService) { }
 
   ngOnInit() {
+    this.myWords = this.wordService.wordsToJSON();
+
     this.words = this.wordService.get2018Words(this.startingGrade);
 
     this.wordsUntried = this.words.slice();
