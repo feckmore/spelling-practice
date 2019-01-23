@@ -137,39 +137,41 @@ export class WordService {
   get2018Words(startingGrade: number): string[] {
 
     let words: string[] = [];
-    if (startingGrade < 1 || startingGrade > 9) { startingGrade = 1; }
-    switch (startingGrade) {
-      case 1:
-        words = words.concat(this.gradeOne2018);
-        /* falls through */
-      case 2:
-        words = words.concat(this.gradeOneTwo2018);
-        /* falls through */
-      case 3:
-        words = words.concat(this.gradeTwoThree2018);
-        /* falls through */
-      case 4:
-        words = words.concat(this.gradeThreeFour2018);
-        /* falls through */
-      case 5:
-        words = words.concat(this.gradeFourFive2018);
-        /* falls through */
-      case 6:
-        words = words.concat(this.gradeFiveSix2018);
-        /* falls through */
-      case 7:
-        words = words.concat(this.gradeSixSeven2018);
-        /* falls through */
-      case 8:
-        words = words.concat(this.gradeSevenEight2018);
-        /* falls through */
-      case 9:
-        words = words.concat(this.gradeEightChallange2018);
-    }
+    // if (startingGrade < 1 || startingGrade > 9) { startingGrade = 1; }
+    // switch (startingGrade) {
+    //   case 1:
+    //     words = words.concat(this.gradeOne2018);
+    //     /* falls through */
+    //   case 2:
+    //     words = words.concat(this.gradeOneTwo2018);
+    //     /* falls through */
+    //   case 3:
+    //     words = words.concat(this.gradeTwoThree2018);
+    //     /* falls through */
+    //   case 4:
+    //     words = words.concat(this.gradeThreeFour2018);
+    //     /* falls through */
+    //   case 5:
+    //     words = words.concat(this.gradeFourFive2018);
+    //     /* falls through */
+    //   case 6:
+    //     words = words.concat(this.gradeFiveSix2018);
+    //     /* falls through */
+    //   case 7:
+    //     words = words.concat(this.gradeSixSeven2018);
+    //     /* falls through */
+    //   case 8:
+    //     words = words.concat(this.gradeSevenEight2018);
+    //     /* falls through */
+    //   case 9:
+    //     words = words.concat(this.gradeEightChallange2018);
+    // }
 
     words = words.concat(this.frequentlyMisspelled);
     words = words.concat(this.homonyms);
     words = words.concat(this.commonlyConfused);
+    words = words.concat(this.latinWords);
+    words = words.concat(this.latinChallengeWords);
 
     return words;
   }
