@@ -1,6 +1,6 @@
 <h1><a href="http://m-w.com/dictionary/{{currentWord}}" target="_blank">{{currentWord}}</a></h1>
 <div>
-  <input #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
+  <input id="spellingInput" #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
 </div>
 
 <div class="pyro-container" [style.display]="showFireworks == true ? 'block' : 'none'">
@@ -22,10 +22,23 @@
 
 <ul>
   <li *ngFor="let attempt of attempts">
-    <span class="{{attempt.won}}">{{attempt.word}}</span>
+    <a href="http://m-w.com/dictionary/{{attempt.word}}" target="_blank">
+      <span class="{{attempt.won}}">{{attempt.word}}</span>
+    </a>
   </li>
 </ul>
 
 <div id="resetContainer"><a href="#" (click)="resetGame()">RESET GAME</a></div>
+<div>&nbsp;</div>
+<span *ngFor="let group of wordGroups">
+  <label for="{{group.name}}">
+    <!-- <input [id]="group.name" type="checkbox" (change)="wordGroupChanged()" [checked]="group.selected"> {{group.name}} -->
+    <input [id]="group.name" style="margin-right: 0px;" type="checkbox" (click)="wordGroupClicked(group, $event.srcElement.checked)" [checked]="group.selected"> {{group.name}}
+  </label>
+</span>
+
+<div>
+  <input [(ngModel)]="startingGrade" (change)="setStartingGrade()">
+</div>
 
 <!-- <div>{{ myWords | json }}</div> -->

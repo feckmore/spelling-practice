@@ -12,6 +12,12 @@ export interface Word {
   tip: string;
 }
 
+export interface WordGroup {
+  name: string;
+  selected: boolean;
+}
+
+
 export class Words {
   // words: Map<string, Word> = new Map<string, Word>();
   words = {

@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 
+import { WordGroup } from './words';
 import { WordService } from './word.service';
 import { flushMicrotasks } from '@angular/core/testing';
 
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit {
   percentCorrect = 0;
   startingGrade = 5;
   showFireworks = false;
+  wordGroups: WordGroup[];
 
   // myWords = {};
 
@@ -35,8 +37,34 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // this.myWords = this.wordService.wordsToJSON();
+    const groups = JSON.parse(localStorage.getItem('word-groups'));
+    if (groups) {
+      this.wordGroups = groups;
+    } else {
+      this.wordGroups = [
+        {name: 'Latin', selected: true},
+        {name: 'Arabic', selected: false},
+        {name: 'Asian', selected: false},
+        {name: 'French', selected: false},
+        {name: 'Eponyms', selected: false},
+        {name: 'Greek', selected: false},
+        {name: 'German', selected: false},
+        {name: 'Slavik', selected: false},
+        {name: 'Old English', selected: false},
+        {name: 'New World', selected: false},
+        {name: 'Japanese', selected: false},
+        {name: 'Greek', selected: false},
+        {name: 'Frequently Misspelled', selected: false},
+        {name: 'Homonyms', selected: false},
+        {name: 'Commonly Confused', selected: false},
+      ];
+    }
 
-    this.words = this.wordService.get2018Words(this.startingGrade);
+    const grade = localStorage.getItem('starting-grade');
+    if (grade && Number(grade)) {
+      this.startingGrade = Number(grade);
+    }
+    this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
 
     this.wordsUntried = this.words.slice();
 
@@ -59,6 +87,35 @@ export class AppComponent implements OnInit {
 
     // now focus in the input box
     this.spellingInput.nativeElement.focus();
+  }
+
+  // isGroupSelected(wordGroup): boolean {
+  //   // const groups = JSON.parse(localStorage.getItem('word-groups'));
+  //   console.log(this.wordGroups);
+  //   console.log(wordGroup);
+  //   const group = this.wordGroups.find(g => g.name === wordGroup);
+  //   return group && group.selected;
+  // }
+
+  wordGroupClicked(wordGroup: WordGroup, selected: boolean): void {
+    const group = this.wordGroups.find(g => g.name === wordGroup.name);
+    if (group) {
+      const index = this.wordGroups.indexOf(group);
+      this.wordGroups[index].selected = selected;
+    }
+    localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
+
+    this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.wordsUntried = this.words.slice();
+    console.log(this.wordGroups);
+  }
+
+  setStartingGrade(): void {
+    localStorage.setItem('starting-grade', this.startingGrade.toString());
+
+    this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.wordsUntried = this.words.slice();
+    console.log(this.startingGrade);
   }
 
   filterWordAttemptsFromWordsUntried() {

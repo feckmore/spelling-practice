@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Word } from './words';
+import { Word, WordGroup } from './words';
 
 @Injectable({
   providedIn: 'root'
@@ -134,44 +134,118 @@ export class WordService {
   //   return this.words2017;
   // }
 
-  get2018Words(startingGrade: number): string[] {
+  get2018Words(startingGrade: number, wordGroups: WordGroup[]): string[] {
 
     let words: string[] = [];
-    // if (startingGrade < 1 || startingGrade > 9) { startingGrade = 1; }
-    // switch (startingGrade) {
-    //   case 1:
-    //     words = words.concat(this.gradeOne2018);
-    //     /* falls through */
-    //   case 2:
-    //     words = words.concat(this.gradeOneTwo2018);
-    //     /* falls through */
-    //   case 3:
-    //     words = words.concat(this.gradeTwoThree2018);
-    //     /* falls through */
-    //   case 4:
-    //     words = words.concat(this.gradeThreeFour2018);
-    //     /* falls through */
-    //   case 5:
-    //     words = words.concat(this.gradeFourFive2018);
-    //     /* falls through */
-    //   case 6:
-    //     words = words.concat(this.gradeFiveSix2018);
-    //     /* falls through */
-    //   case 7:
-    //     words = words.concat(this.gradeSixSeven2018);
-    //     /* falls through */
-    //   case 8:
-    //     words = words.concat(this.gradeSevenEight2018);
-    //     /* falls through */
-    //   case 9:
-    //     words = words.concat(this.gradeEightChallange2018);
-    // }
+    if (startingGrade < 1 || startingGrade > 10) { startingGrade = 1; }
+    switch (startingGrade) {
+      case 1:
+        words = words.concat(this.gradeOne2018);
+        /* falls through */
+      case 2:
+        words = words.concat(this.gradeOneTwo2018);
+        /* falls through */
+      case 3:
+        words = words.concat(this.gradeTwoThree2018);
+        /* falls through */
+      case 4:
+        words = words.concat(this.gradeThreeFour2018);
+        /* falls through */
+      case 5:
+        words = words.concat(this.gradeFourFive2018);
+        /* falls through */
+      case 6:
+        words = words.concat(this.gradeFiveSix2018);
+        /* falls through */
+      case 7:
+        words = words.concat(this.gradeSixSeven2018);
+        /* falls through */
+      case 8:
+        words = words.concat(this.gradeSevenEight2018);
+        /* falls through */
+      case 9:
+        words = words.concat(this.gradeEightChallange2018);
+        break;
+      case 10:
+        // no words added... move along
+    }
 
-    words = words.concat(this.frequentlyMisspelled);
-    words = words.concat(this.homonyms);
-    words = words.concat(this.commonlyConfused);
-    words = words.concat(this.latinWords);
-    words = words.concat(this.latinChallengeWords);
+    for (const group of wordGroups) {
+      if (!group.selected) {
+        continue;
+      }
+
+      switch (group.name) {
+        case 'Latin':
+          words = words.concat(this.latinWords);
+          words = words.concat(this.latinChallengeWords);
+          break;
+        case 'Arabic':
+          words = words.concat(this.arabicWords);
+          words = words.concat(this.arabicChallengeWords);
+          break;
+        case 'Asian':
+          words = words.concat(this.asianWords);
+          words = words.concat(this.asianChallengeWords);
+          break;
+        case 'French':
+          words = words.concat(this.frenchWords);
+          words = words.concat(this.frenchChallengeWords);
+          break;
+        case 'Eponyms':
+          words = words.concat(this.eponyms);
+          words = words.concat(this.eponymChallengeWords);
+          break;
+        case 'German':
+          words = words.concat(this.germanWords);
+          words = words.concat(this.germanChallengeWords);
+          break;
+        case 'Slavic':
+          words = words.concat(this.slavicWords);
+          words = words.concat(this.slavicChallengeWords);
+          break;
+        case 'Dutch':
+          words = words.concat(this.dutchWords);
+          words = words.concat(this.dutchChallengeWords);
+          break;
+        case 'Old English':
+          words = words.concat(this.oldEnglishWords);
+          words = words.concat(this.oldEnglishChallengeWords);
+          break;
+        case 'New World':
+          words = words.concat(this.newWorldWords);
+          words = words.concat(this.newWorldChallengeWords);
+          break;
+        case 'Japanese':
+          words = words.concat(this.japaneseWords);
+          words = words.concat(this.japaneseChallengeWords);
+          break;
+        case 'Greek':
+          words = words.concat(this.greekWords);
+          words = words.concat(this.greekChallengeWords);
+          break;
+        case 'Italian':
+          words = words.concat(this.italianWords);
+          words = words.concat(this.italianChallengeWords);
+          break;
+        case 'Spanish':
+          words = words.concat(this.spanishWords);
+          words = words.concat(this.spanishChallengeWords);
+          break;
+        case 'Frequently Misspelled':
+          words = words.concat(this.frequentlyMisspelled);
+          break;
+        case 'Homonyms':
+          words = words.concat(this.homonyms);
+          break;
+        case 'Commonly Confused':
+          words = words.concat(this.commonlyConfused);
+          break;
+
+        default:
+          break;
+      }
+    }
 
     return words;
   }
