@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   showFireworks = false;
   wordGroups: WordGroup[];
   dictionaryURL: any;
+  playSounds = false;
 
   // myWords = {};
 
@@ -93,8 +94,8 @@ export class AppComponent implements OnInit {
     this.spellingInput.nativeElement.focus();
   }
 
-  showDictionaryPage(word: string) {
-    this.dictionaryURL = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.merriam-webster.com/dictionary/' + word);
+  async showDictionaryPage(word: string) {
+    this.dictionaryURL = await this.sanitizer.bypassSecurityTrustResourceUrl('https://www.merriam-webster.com/dictionary/' + word);
   }
 
   // isGroupSelected(wordGroup): boolean {
@@ -104,6 +105,10 @@ export class AppComponent implements OnInit {
   //   const group = this.wordGroups.find(g => g.name === wordGroup);
   //   return group && group.selected;
   // }
+
+  playSoundsClicked() {
+    this.playSounds = !this.playSounds;
+  }
 
   wordGroupClicked(wordGroup: WordGroup, selected: boolean): void {
     const group = this.wordGroups.find(g => g.name === wordGroup.name);
@@ -241,7 +246,9 @@ export class AppComponent implements OnInit {
   }
 
   playSoundIncorrect() {
-    this.playSound('https://soundbible.com/mp3/Door Buzzer-SoundBible.com-1567875395.mp3');
+    if (this.playSounds) {
+      this.playSound('https://soundbible.com/mp3/Door Buzzer-SoundBible.com-1567875395.mp3');
+    }
   }
 
   playSoundKeypress() {
@@ -250,7 +257,10 @@ export class AppComponent implements OnInit {
     // http://soundbible.com/mp3/Click2-Sebastian-759472264.mp3
     // http://soundbible.com/mp3/Blop-Mark_DiAngelo-79054334.mp3
     // http://soundbible.com/mp3/Woosh-Mark_DiAngelo-4778593.mp3
-    this.playSound('https://soundbible.com/mp3/Click-SoundBible.com-1387633738.mp3');
+
+    if (this.playSounds) {
+      this.playSound('https://soundbible.com/mp3/Click-SoundBible.com-1387633738.mp3');
+    }
   }
 
   playSoundCorrect() {
@@ -278,7 +288,10 @@ export class AppComponent implements OnInit {
       'https://soundbible.com/mp3/Children_Laughing-Mike_Koenig-575083331.mp3', 'https://soundbible.com/mp3/Warbling_Vireo-Mike_Koenig-89869915.mp3'
     ];
     const src = funSoundSources[Math.floor(Math.random() * funSoundSources.length)];
-    this.playSound(src);
+
+    if (this.playSounds) {
+      this.playSound(src);
+    }
   }
 
   resetGame() {

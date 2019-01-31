@@ -45,5 +45,12 @@
     <input [(ngModel)]="startingGrade" (change)="setStartingGrade()">
   </div>
 
+  <div>
+      <label for="playsounds">
+          <!-- <input [id]="group.name" type="checkbox" (change)="wordGroupChanged()" [checked]="group.selected"> {{group.name}} -->
+          <input id="playsounds" style="margin-right: 0px;" type="checkbox" (click)="playSoundsClicked()" [checked]="playSounds"> Play Sounds
+        </label>
+  </div>
+
   <!-- <div>{{ myWords | json }}</div> -->
 </div>
