@@ -2,6 +2,46 @@ div {
   text-align: center;
 }
 
+a {
+  cursor: pointer;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
 input#spellingInput {
   font-size: 3rem;
   text-align: center;

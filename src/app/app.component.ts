@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { WordGroup } from './words';
 import { WordService } from './word.service';
@@ -30,10 +31,11 @@ export class AppComponent implements OnInit {
   startingGrade = 5;
   showFireworks = false;
   wordGroups: WordGroup[];
+  dictionaryURL: any;
 
   // myWords = {};
 
-  constructor(private wordService: WordService) { }
+  constructor(private wordService: WordService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     // this.myWords = this.wordService.wordsToJSON();
@@ -79,14 +81,20 @@ export class AppComponent implements OnInit {
     const current: string = localStorage.getItem('spell-current-word');
     if (current && current.length > 0) {
       this.currentWord = current;
+      this.showDictionaryPage(this.currentWord);
     } else {
       this.selectNewWord(false);
     }
+
     // go through list of historic attempts and filter out to get list of words not yet tried
     this.filterWordAttemptsFromWordsUntried();
 
     // now focus in the input box
     this.spellingInput.nativeElement.focus();
+  }
+
+  showDictionaryPage(word: string) {
+    this.dictionaryURL = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.merriam-webster.com/dictionary/' + word);
   }
 
   // isGroupSelected(wordGroup): boolean {
@@ -158,6 +166,8 @@ export class AppComponent implements OnInit {
 
     this.currentWordIndex = Math.floor(Math.random() * this.wordsUntried.length);
     this.currentWord = this.wordsUntried[this.currentWordIndex];
+    this.showDictionaryPage(this.currentWord);
+
     localStorage.setItem('spell-current-word', this.currentWord);
   }
 

@@ -1,44 +1,49 @@
-<h1><a href="http://m-w.com/dictionary/{{currentWord}}" target="_blank">{{currentWord}}</a></h1>
-<div>
-  <input id="spellingInput" #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
+<div class="split right">
+  <iframe id="dictionaryFrame" name="dictionaryFrame" class="e2e-iframe-trusted-src" [src]="dictionaryURL" height="100%" width="100%"></iframe>
 </div>
-
-<div class="pyro-container" [style.display]="showFireworks == true ? 'block' : 'none'">
-  <div class="pyro">
-    <div class="before"></div>
-    <div class="after"></div>
+<div class="split left">
+  <h1><a (click)="showDictionaryPage(currentWord)" target="dictionaryFrame">{{currentWord}}</a></h1>
+  <div>
+    <input id="spellingInput" #spellingInput type="text" [(ngModel)]="spelledWord" (input)="wordChange($event.target.value)" (paste)="false">
   </div>
+
+  <div class="pyro-container" [style.display]="showFireworks == true ? 'block' : 'none'">
+    <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+  </div>
+
+  <div class="scoreContainer left">
+    <div class="scoreCaption">SCORE</div>
+    <div id="totalScore" class="score">{{totalScore}}</div>
+  </div>
+
+  <div class="scoreContainer right">
+    <div class="scoreCaption">{{totalCorrect}} / {{totalWords}}</div>
+    <div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
+  </div>
+
+  <ul>
+    <li *ngFor="let attempt of attempts">
+      <a (click)="showDictionaryPage(attempt.word)" target="dictionaryFrame">
+        <span class="{{attempt.won}}">{{attempt.word}}</span>
+      </a>
+    </li>
+  </ul>
+
+  <div id="resetContainer"><a href="#" (click)="resetGame()">RESET GAME</a></div>
+  <div>&nbsp;</div>
+  <span *ngFor="let group of wordGroups">
+    <label for="{{group.name}}">
+      <!-- <input [id]="group.name" type="checkbox" (change)="wordGroupChanged()" [checked]="group.selected"> {{group.name}} -->
+      <input [id]="group.name" style="margin-right: 0px;" type="checkbox" (click)="wordGroupClicked(group, $event.srcElement.checked)" [checked]="group.selected"> {{group.name}}
+    </label>
+  </span>
+
+  <div>
+    <input [(ngModel)]="startingGrade" (change)="setStartingGrade()">
+  </div>
+
+  <!-- <div>{{ myWords | json }}</div> -->
 </div>
-
-<div class="scoreContainer left">
-  <div class="scoreCaption">SCORE</div>
-  <div id="totalScore" class="score">{{totalScore}}</div>
-</div>
-
-<div class="scoreContainer right">
-  <div class="scoreCaption">{{totalCorrect}} / {{totalWords}}</div>
-  <div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
-</div>
-
-<ul>
-  <li *ngFor="let attempt of attempts">
-    <a href="http://m-w.com/dictionary/{{attempt.word}}" target="_blank">
-      <span class="{{attempt.won}}">{{attempt.word}}</span>
-    </a>
-  </li>
-</ul>
-
-<div id="resetContainer"><a href="#" (click)="resetGame()">RESET GAME</a></div>
-<div>&nbsp;</div>
-<span *ngFor="let group of wordGroups">
-  <label for="{{group.name}}">
-    <!-- <input [id]="group.name" type="checkbox" (change)="wordGroupChanged()" [checked]="group.selected"> {{group.name}} -->
-    <input [id]="group.name" style="margin-right: 0px;" type="checkbox" (click)="wordGroupClicked(group, $event.srcElement.checked)" [checked]="group.selected"> {{group.name}}
-  </label>
-</span>
-
-<div>
-  <input [(ngModel)]="startingGrade" (change)="setStartingGrade()">
-</div>
-
-<!-- <div>{{ myWords | json }}</div> -->
