@@ -56,7 +56,6 @@ export class AppComponent implements OnInit {
         {name: 'Old English', selected: false},
         {name: 'New World', selected: false},
         {name: 'Japanese', selected: false},
-        {name: 'Greek', selected: false},
         {name: 'Frequently Misspelled', selected: false},
         {name: 'Homonyms', selected: false},
         {name: 'Commonly Confused', selected: false},

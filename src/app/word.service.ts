@@ -81,56 +81,56 @@ export class WordService {
 
   constructor() { }
 
-  wordsToJSON(): any {
-    this.addWords(this.gradeOne2018, 1, false, '', '');
-    this.addWords(this.gradeOneTwo2018, 2, false, '', '');
-    this.addWords(this.gradeTwoThree2018, 3, false, '', '');
-    this.addWords(this.gradeThreeFour2018, 4, false, '', '');
-    this.addWords(this.gradeFourFive2018, 5, false, '', '');
-    this.addWords(this.gradeFiveSix2018, 6, false, '', '');
-    this.addWords(this.gradeSixSeven2018, 7, false, '', '');
-    this.addWords(this.gradeSevenEight2018, 8, false, '', '');
-    this.addWords(this.gradeEightChallange2018, 8, true, '', '');
+  // wordsToJSON(): any {
+  //   this.addWords(this.gradeOne2018, 1, false, '', '');
+  //   this.addWords(this.gradeOneTwo2018, 2, false, '', '');
+  //   this.addWords(this.gradeTwoThree2018, 3, false, '', '');
+  //   this.addWords(this.gradeThreeFour2018, 4, false, '', '');
+  //   this.addWords(this.gradeFourFive2018, 5, false, '', '');
+  //   this.addWords(this.gradeFiveSix2018, 6, false, '', '');
+  //   this.addWords(this.gradeSixSeven2018, 7, false, '', '');
+  //   this.addWords(this.gradeSevenEight2018, 8, false, '', '');
+  //   this.addWords(this.gradeEightChallange2018, 8, true, '', '');
 
-    this.addWords(this.latinWords, 6, false, 'Latin', '');
-    this.addWords(this.arabicWords, 6, false, 'Arabic', '');
-    this.addWords(this.asianWords, 6, false, 'Asian', '');
-    this.addWords(this.frenchWords, 6, false, 'French', '');
-    this.addWords(this.eponyms, 6, false, 'Eponyms', '');
-    this.addWords(this.germanWords, 6, false, 'German', '');
-    this.addWords(this.slavicWords, 6, false, 'Slavic', '');
-    this.addWords(this.dutchWords, 6, false, 'Dutch', '');
-    this.addWords(this.oldEnglishWords, 6, false, 'Old English', '');
-    this.addWords(this.newWorldWords, 6, false, 'New World', '');
-    this.addWords(this.japaneseWords, 6, false, 'Japanese', '');
-    this.addWords(this.greekWords, 6, false, 'Greek', '');
-    this.addWords(this.italianWords, 6, false, 'Italian', '');
-    this.addWords(this.spanishWords, 6, false, 'Spanish', '');
+  //   this.addWords(this.latinWords, 6, false, 'Latin', '');
+  //   this.addWords(this.arabicWords, 6, false, 'Arabic', '');
+  //   this.addWords(this.asianWords, 6, false, 'Asian', '');
+  //   this.addWords(this.frenchWords, 6, false, 'French', '');
+  //   this.addWords(this.eponyms, 6, false, 'Eponyms', '');
+  //   this.addWords(this.germanWords, 6, false, 'German', '');
+  //   this.addWords(this.slavicWords, 6, false, 'Slavic', '');
+  //   this.addWords(this.dutchWords, 6, false, 'Dutch', '');
+  //   this.addWords(this.oldEnglishWords, 6, false, 'Old English', '');
+  //   this.addWords(this.newWorldWords, 6, false, 'New World', '');
+  //   this.addWords(this.japaneseWords, 6, false, 'Japanese', '');
+  //   this.addWords(this.greekWords, 6, false, 'Greek', '');
+  //   this.addWords(this.italianWords, 6, false, 'Italian', '');
+  //   this.addWords(this.spanishWords, 6, false, 'Spanish', '');
 
-    this.addWords(this.latinChallengeWords, 8, true, 'Latin', '');
-    this.addWords(this.arabicChallengeWords, 8, true, 'Arabic', '');
-    this.addWords(this.asianChallengeWords, 8, true, 'Asian', '');
-    this.addWords(this.frenchChallengeWords, 8, true, 'French', '');
-    this.addWords(this.eponymChallengeWords, 8, true, 'Eponyms', '');
-    this.addWords(this.germanChallengeWords, 8, true, 'German', '');
-    this.addWords(this.slavicChallengeWords, 8, true, 'Slavic', '');
-    this.addWords(this.dutchChallengeWords, 8, true, 'Dutch', '');
-    this.addWords(this.oldEnglishChallengeWords, 8, true, 'Old English', '');
-    this.addWords(this.newWorldChallengeWords, 8, true, 'New World', '');
-    this.addWords(this.japaneseChallengeWords, 8, true, 'Japanese', '');
-    this.addWords(this.greekChallengeWords, 8, true, 'Greek', '');
-    this.addWords(this.italianChallengeWords, 8, true, 'Italian', '');
-    this.addWords(this.spanishChallengeWords, 8, true, 'Spanish', '');
+  //   this.addWords(this.latinChallengeWords, 8, true, 'Latin', '');
+  //   this.addWords(this.arabicChallengeWords, 8, true, 'Arabic', '');
+  //   this.addWords(this.asianChallengeWords, 8, true, 'Asian', '');
+  //   this.addWords(this.frenchChallengeWords, 8, true, 'French', '');
+  //   this.addWords(this.eponymChallengeWords, 8, true, 'Eponyms', '');
+  //   this.addWords(this.germanChallengeWords, 8, true, 'German', '');
+  //   this.addWords(this.slavicChallengeWords, 8, true, 'Slavic', '');
+  //   this.addWords(this.dutchChallengeWords, 8, true, 'Dutch', '');
+  //   this.addWords(this.oldEnglishChallengeWords, 8, true, 'Old English', '');
+  //   this.addWords(this.newWorldChallengeWords, 8, true, 'New World', '');
+  //   this.addWords(this.japaneseChallengeWords, 8, true, 'Japanese', '');
+  //   this.addWords(this.greekChallengeWords, 8, true, 'Greek', '');
+  //   this.addWords(this.italianChallengeWords, 8, true, 'Italian', '');
+  //   this.addWords(this.spanishChallengeWords, 8, true, 'Spanish', '');
 
-    this.addWords(this.frequentlyMisspelled, 4, false, '', 'Frequently misspelled word');
-    this.addWords(this.homonyms, 4, false, '', 'This word has one or more homonyms, words with the same pronunciation, but with a different spelling or meaning.  Make sure to ask for the definition.');
-    this.addWords(this.commonlyConfused, 4, false, '', 'This word is commonly confused with another similar sounding word.');
+  //   this.addWords(this.frequentlyMisspelled, 4, false, '', 'Frequently misspelled word');
+  //   this.addWords(this.homonyms, 4, false, '', 'This word has one or more homonyms, words with the same pronunciation, but with a different spelling or meaning.  Make sure to ask for the definition.');
+  //   this.addWords(this.commonlyConfused, 4, false, '', 'This word is commonly confused with another similar sounding word.');
 
-    // console.log('lotso, lotso words');
-    // console.log(this.myWords);
+  //   // console.log('lotso, lotso words');
+  //   // console.log(this.myWords);
 
-    return this.myWords;
-  }
+  //   return this.myWords;
+  // }
 
   // get2017Words(): string[] {
   //   return this.words2017;
