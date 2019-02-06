@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
 
   // @Input() words:string[]
   words: string[];
+  wordCount = 0;
   wordsUntried: string[];
+  wordsLeft = 0;
   spelledWord: string;
   currentWord: string;
   currentWordIndex = -1;
@@ -67,6 +69,7 @@ export class AppComponent implements OnInit {
       this.startingGrade = Number(grade);
     }
     this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.wordCount = this.words.length;
 
     this.wordsUntried = this.words.slice();
 
@@ -88,6 +91,7 @@ export class AppComponent implements OnInit {
 
     // go through list of historic attempts and filter out to get list of words not yet tried
     this.filterWordAttemptsFromWordsUntried();
+    this.wordsLeft = this.wordsUntried.length;
 
     // now focus in the input box
     this.spellingInput.nativeElement.focus();
@@ -118,7 +122,9 @@ export class AppComponent implements OnInit {
     localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
 
     this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.wordCount = this.words.length;
     this.wordsUntried = this.words.slice();
+    this.wordsLeft = this.wordsUntried.length;
     console.log(this.wordGroups);
   }
 
@@ -126,7 +132,9 @@ export class AppComponent implements OnInit {
     localStorage.setItem('starting-grade', this.startingGrade.toString());
 
     this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.wordCount = this.words.length;
     this.wordsUntried = this.words.slice();
+    this.wordsLeft = this.wordsUntried.length;
     console.log(this.startingGrade);
   }
 
@@ -171,6 +179,7 @@ export class AppComponent implements OnInit {
     this.currentWordIndex = Math.floor(Math.random() * this.wordsUntried.length);
     this.currentWord = this.wordsUntried[this.currentWordIndex];
     this.showDictionaryPage(this.currentWord);
+    this.wordsLeft = this.wordsUntried.length;
 
     localStorage.setItem('spell-current-word', this.currentWord);
   }

@@ -20,7 +20,7 @@
   </div>
 
   <div class="scoreContainer right">
-    <div class="scoreCaption">{{totalCorrect}} / {{totalWords}}</div>
+    <div class="scoreCaption" [title]="wordsLeft + ' / ' + wordCount">{{totalCorrect}} / {{totalWords}}</div>
     <div id="percentCorrect" class="score">{{100 * totalCorrect/totalWords | number:'1.1-1'}}%</div>
   </div>
 
@@ -45,7 +45,7 @@
     <input [(ngModel)]="startingGrade" (change)="setStartingGrade()">
   </div>
 
-  <div>
+  <div style="margin: 10px 20px 40px 20px;">
       <label for="playsounds">
           <!-- <input [id]="group.name" type="checkbox" (change)="wordGroupChanged()" [checked]="group.selected"> {{group.name}} -->
           <input id="playsounds" style="margin-right: 0px;" type="checkbox" (click)="playSoundsClicked()" [checked]="playSounds"> Play Sounds
