@@ -46,22 +46,7 @@ export class AppComponent implements OnInit {
     if (groups) {
       this.wordGroups = groups;
     } else {
-      this.wordGroups = [
-        {name: 'Latin', selected: true},
-        {name: 'Arabic', selected: false},
-        {name: 'Asian', selected: false},
-        {name: 'French', selected: false},
-        {name: 'Eponyms', selected: false},
-        {name: 'Greek', selected: false},
-        {name: 'German', selected: false},
-        {name: 'Slavik', selected: false},
-        {name: 'Old English', selected: false},
-        {name: 'New World', selected: false},
-        {name: 'Japanese', selected: false},
-        {name: 'Frequently Misspelled', selected: false},
-        {name: 'Homonyms', selected: false},
-        {name: 'Commonly Confused', selected: false},
-      ];
+      this.resetWordGroups();
     }
 
     const grade = localStorage.getItem('starting-grade');
@@ -316,9 +301,29 @@ export class AppComponent implements OnInit {
 
     localStorage.setItem('spell-current-word', '');
     localStorage.setItem('spelling-practice', '');
+    this.resetWordGroups();
     this.selectNewWord(false);
   }
 
+  resetWordGroups() {
+    this.wordGroups = [
+      {name: 'Latin', selected: true},
+      {name: 'Arabic', selected: false},
+      {name: 'Asian', selected: false},
+      {name: 'French', selected: false},
+      {name: 'Eponyms', selected: false},
+      {name: 'Greek', selected: false},
+      {name: 'German', selected: false},
+      {name: 'Slavik', selected: false},
+      {name: 'Old English', selected: false},
+      {name: 'New World', selected: false},
+      {name: 'Japanese', selected: false},
+      {name: 'Frequently Misspelled', selected: false},
+      {name: 'Homonyms', selected: false},
+      {name: 'Commonly Confused', selected: false},
+    ];
+    localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
+  }
 }
 
 interface Attempt {
