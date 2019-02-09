@@ -30,7 +30,7 @@ export class WordService {
   eponymChallengeWords: string[] = ['forsythia', 'madeleine', 'bromeliad', 'mercerize', 'Fahrenheit', 'narcissistic', 'dahlia', 'Baedeker', 'philippic', 'guillotine', 'Bobadil', 'mesmerize', 'gnathonic', 'pasteurize', 'Croesus', 'braggadocio'];
 
   germanWords: string[] = ['angst', 'pretzel', 'waltz', 'haversack', 'nosh', 'sauerbraten', 'hinterland', 'verboten', 'liverwurst', 'streusel', 'umlaut', 'wanderlust', 'eiderdown', 'schnauzer', 'lederhosen', 'kohlrabi', 'sitzmark', 'langlauf', 'autobahn', 'Backstein', 'inselberg', 'gestalt', 'einkorn', 'kitsch', 'gestapo', 'schloss', 'rucksack', 'echt', 'bratwurst', 'knapsack', 'feldspar', 'poltergeist', 'noodle', 'spareribs', 'Meistersinger', 'pumpernickel', 'Bildungsroman', 'strudel', 'bagel', 'hamster', 'cobalt', 'nachtmusik', 'vorlage', 'graupel', 'Wagnerian', 'cringle', 'fife', 'glitz', 'homburg', 'kuchen', 'pitchblende', 'spritz', 'prattle', 'zwinger', 'spitz', 'realschule', 'panzer', 'stollen', 'dachshund', 'seltzer'];
-  germanChallengeWords: string[] = ['schadenfreude', 'dreidel', 'weimaraner', 'ersatz', 'fräulein', 'blitzkrieg', 'gesundheit', 'pfeffernuss', 'edelweiss', 'glockenspiel', 'rottweiler', 'schottische', 'anschluss', 'wedel', 'springerle', 'zeitgeber', 'pickelhaube', 'schnecke', 'Weissnichtwo'];
+  germanChallengeWords: string[] = ['schadenfreude', 'dreidel', 'weimaraner', 'ersatz', 'fraulein', 'blitzkrieg', 'gesundheit', 'pfeffernuss', 'edelweiss', 'glockenspiel', 'rottweiler', 'schottische', 'anschluss', 'wedel', 'springerle', 'zeitgeber', 'pickelhaube', 'schnecke', 'Weissnichtwo'];
 
   slavicWords: string[] = ['gulag', 'parka', 'Slav', 'robot', 'samovar', 'kremlin', 'troika', 'slave', 'mammoth', 'Siberian', 'tundra', 'Permian', 'kishke', 'glasnost', 'paprika', 'sable', 'kasha', 'nebbish', 'polka', 'Bolshevik', 'vampire', 'sputnik', 'knish', 'cravat', 'babushka', 'Soviet', 'Borzoi', 'gopak', 'cheka', 'sevruga', 'trepak', 'babka', 'purga', 'baba', 'cossack', 'nelma', 'kovsh', 'lokshen', 'feldsher', 'barabara', 'aul'];
   slavicChallengeWords: string[] = ['balalaika', 'kielbasa', 'tchotchke', 'barukhzy', 'perestroika', 'apparatchik', 'commissar', 'tokamak', 'pogrom', 'taiga', 'Beetewk'];
@@ -61,6 +61,7 @@ export class WordService {
   commonlyConfused: string[] = ['advice', 'advise', 'allusion', 'illusion', 'amoral', 'immoral', 'affect', 'effect', 'averse', 'adverse', 'biannual', 'biennial', 'breath', 'breathe', 'choose', 'chose', 'climactic', 'climatic', 'collaborate', 'corroborate', 'conscience', 'conscious', 'convince', 'persuade', 'desert', 'dessert', 'device', 'devise', 'emigrate', 'immigrate', 'flaunt', 'flout', 'founder', 'flounder', 'gambit', 'gamut', 'imply', 'infer', 'irritate', 'aggravate', 'later', 'latter', 'liable', 'libel', 'loose', 'lose', 'marital', 'martial', 'moot', 'mute', 'nauseated', 'nauseous', 'perspective', 'prospective', 'proceed', 'precede', 'proscribe', 'prescribe', 'quiet', 'quite', 'recall', 'recount', 'tenant', 'tenet', 'than', 'then'];
 
   fromOtherBees: string[] = ['zeppelin', 'altiplano', 'sapphire', 'honesty', 'vaccinate'];
+  fromDailyBuzzword: string[] = ['legislator'];
 
   // words2017: string[] = [...this.baseWords3, ...this.baseWords4, ...this.baseWords5, ...this.baseWords6,
   //   ...this.latinWords, ...this.arabicWords, ...this.asianWords, ...this.frenchWords, ...this.eponyms,
