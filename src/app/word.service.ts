@@ -60,8 +60,13 @@ export class WordService {
   homonyms: string[] = ['accept', 'except', 'aisle', 'isle', 'bare', 'bear', 'born', 'borne', 'capital', 'capitol', 'cash', 'cache', 'ceiling', 'sealing', 'cellar', 'seller', 'censor', 'censer', 'senser', 'sensor', 'cereal', 'serial', 'coarse', 'course', 'colonel', 'kernel', 'complement', 'compliment', 'council', 'counsel', 'elicit', 'illicit', 'forth', 'fourth', 'herd', 'heard', 'hole', 'whole', 'horse', 'hoarse', 'lean', 'lien', 'led', 'lead (n.)', 'naval', 'navel', 'ought', 'aught', 'principal', 'principle', 'recede', 'reseed', 'right', 'rite', 'sight', 'site', 'cite', 'stationary', 'stationery', 'straight', 'strait', 'their', 'there', 'ware', 'wear', 'where', 'weather', 'whether', 'wright', 'write', 'rote', 'wrote', 'yore', 'your'];
   commonlyConfused: string[] = ['advice', 'advise', 'allusion', 'illusion', 'amoral', 'immoral', 'affect', 'effect', 'averse', 'adverse', 'biannual', 'biennial', 'breath', 'breathe', 'choose', 'chose', 'climactic', 'climatic', 'collaborate', 'corroborate', 'conscience', 'conscious', 'convince', 'persuade', 'desert', 'dessert', 'device', 'devise', 'emigrate', 'immigrate', 'flaunt', 'flout', 'founder', 'flounder', 'gambit', 'gamut', 'imply', 'infer', 'irritate', 'aggravate', 'later', 'latter', 'liable', 'libel', 'loose', 'lose', 'marital', 'martial', 'moot', 'mute', 'nauseated', 'nauseous', 'perspective', 'prospective', 'proceed', 'precede', 'proscribe', 'prescribe', 'quiet', 'quite', 'recall', 'recount', 'tenant', 'tenet', 'than', 'then'];
 
-  fromOtherBees: string[] = ['zeppelin', 'altiplano', 'sapphire', 'honesty', 'vaccinate'];
-  fromDailyBuzzword: string[] = ['legislator'];
+  fromOtherBees: string[] = [ 'fascism', 'nomadic', 'matriculate', 'immaculate', 'metabolism', 'crudo', 'heartsick', 'exclamation', 'verisimilitude', 'animadversion', 'domiciliated', 'viscount', 'artesian', 'mantis', 'verbena', 'asparagus', 'illicitly', 'zeppelin', 'altiplano', 'sapphire', 'honesty', 'vaccinate', 'resplendence', 'coupon', 'buying', 'value', 'heroes', 'needless', 'editor', 'resistance', 'pituitary', 'agitated'];
+  fromDailyBuzzword: string[] = ['legislator', 'obstacle'];
+  fromPreviousYears: string[] = [ 'excruciating', 'clandestine', 'improvise', 'grotesque' ];
+  fromBeesBookshelf: string[] = [ 'carousel', 'danger', 'power', 'tension', 'friendship'];
+
+  // https://www.youtube.com/watch?v=urAExRv7vqM
+  fromOtherNonScrippsBees: string[] = [ 'sprightful', 'minnow', 'cleave', 'apothecary', 'umbilical', 'oligarchy', 'bemused', 'caveat', 'arguable', 'yuletide', 'leisurely', 'quarantine', 'archaic', 'fortuitous', 'quandary', 'symmetry', 'trusteeship',  'constituency', 'schematic', 'juggling', 'collegiality', 'aviation', 'peninsula', 'burrow', 'particle', 'merciful', 'jeweler', 'accountant', 'igloo', 'exhalation', 'nostalgic', 'scarab', 'hypoglycemia', 'severance', 'posture', 'compendium', 'felled', 'drapery', 'sampling', 'docent', 'quell', 'neurosis', 'currency', 'whisker', 'opposite', 'revolution', 'accent', 'fierce', 'proxy', 'stingy', 'eyesore', 'obtuse', ];
 
   // words2017: string[] = [...this.baseWords3, ...this.baseWords4, ...this.baseWords5, ...this.baseWords6,
   //   ...this.latinWords, ...this.arabicWords, ...this.asianWords, ...this.frenchWords, ...this.eponyms,
@@ -180,71 +185,71 @@ export class WordService {
         continue;
       }
 
-      switch (group.name) {
-        case 'Latin':
+      switch (group.name.toLowerCase()) {
+        case 'latin':
           words = words.concat(this.latinWords);
           words = words.concat(this.latinChallengeWords);
           break;
-        case 'Arabic':
+        case 'arabic':
           words = words.concat(this.arabicWords);
           words = words.concat(this.arabicChallengeWords);
           break;
-        case 'Asian':
+        case 'asian':
           words = words.concat(this.asianWords);
           words = words.concat(this.asianChallengeWords);
           break;
-        case 'French':
+        case 'french':
           words = words.concat(this.frenchWords);
           words = words.concat(this.frenchChallengeWords);
           break;
-        case 'Eponyms':
+        case 'eponyms':
           words = words.concat(this.eponyms);
           words = words.concat(this.eponymChallengeWords);
           break;
-        case 'German':
+        case 'german':
           words = words.concat(this.germanWords);
           words = words.concat(this.germanChallengeWords);
           break;
-        case 'Slavic':
+        case 'slavic':
           words = words.concat(this.slavicWords);
           words = words.concat(this.slavicChallengeWords);
           break;
-        case 'Dutch':
+        case 'dutch':
           words = words.concat(this.dutchWords);
           words = words.concat(this.dutchChallengeWords);
           break;
-        case 'Old English':
+        case 'old english':
           words = words.concat(this.oldEnglishWords);
           words = words.concat(this.oldEnglishChallengeWords);
           break;
-        case 'New World':
+        case 'new world':
           words = words.concat(this.newWorldWords);
           words = words.concat(this.newWorldChallengeWords);
           break;
-        case 'Japanese':
+        case 'japanese':
           words = words.concat(this.japaneseWords);
           words = words.concat(this.japaneseChallengeWords);
           break;
-        case 'Greek':
+        case 'greek':
           words = words.concat(this.greekWords);
           words = words.concat(this.greekChallengeWords);
           break;
-        case 'Italian':
+        case 'italian':
           words = words.concat(this.italianWords);
           words = words.concat(this.italianChallengeWords);
           break;
-        case 'Spanish':
+        case 'spanish':
           words = words.concat(this.spanishWords);
           words = words.concat(this.spanishChallengeWords);
           break;
-        case 'Frequently Misspelled':
+        case 'frequently misspelled':
           words = words.concat(this.frequentlyMisspelled);
           words = words.concat(this.fromOtherBees);
           break;
-        case 'Homonyms':
+        case 'homonyms':
           words = words.concat(this.homonyms);
           break;
-        case 'Commonly Confused':
+        case 'commonly confused':
           words = words.concat(this.commonlyConfused);
           break;
 

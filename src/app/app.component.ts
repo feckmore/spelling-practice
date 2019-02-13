@@ -314,7 +314,7 @@ export class AppComponent implements OnInit {
       {name: 'Eponyms', selected: false},
       {name: 'Greek', selected: false},
       {name: 'German', selected: false},
-      {name: 'Slavik', selected: false},
+      {name: 'Slavic', selected: false},
       {name: 'Old English', selected: false},
       {name: 'New World', selected: false},
       {name: 'Japanese', selected: false},
