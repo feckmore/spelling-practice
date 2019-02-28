@@ -321,6 +321,7 @@ export class AppComponent implements OnInit {
       {name: 'Frequently Misspelled', selected: false},
       {name: 'Homonyms', selected: false},
       {name: 'Commonly Confused', selected: false},
+      {name: 'Other Bees', selected: false},
     ];
     localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
   }
