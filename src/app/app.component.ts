@@ -312,16 +312,19 @@ export class AppComponent implements OnInit {
       {name: 'Asian', selected: false},
       {name: 'French', selected: false},
       {name: 'Eponyms', selected: false},
-      {name: 'Greek', selected: false},
       {name: 'German', selected: false},
       {name: 'Slavic', selected: false},
       {name: 'Old English', selected: false},
       {name: 'New World', selected: false},
       {name: 'Japanese', selected: false},
+      {name: 'Greek', selected: false},
       {name: 'Frequently Misspelled', selected: false},
       {name: 'Homonyms', selected: false},
       {name: 'Commonly Confused', selected: false},
       {name: 'Other Bees', selected: false},
+      {name: 'Dutch', selected: false},
+      {name: 'Italian', selected: false},
+      {name: 'Spanish', selected: false},
     ];
     localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
   }
