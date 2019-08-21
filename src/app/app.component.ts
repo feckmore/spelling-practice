@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   totalWords = 0;
   totalCorrect = 0;
   percentCorrect = 0;
-  startingGrade = 5;
+  startingGrade = 10;
   showFireworks = false;
   wordGroups: WordGroup[];
   dictionaryURL: any;
@@ -53,7 +53,8 @@ export class AppComponent implements OnInit {
     if (grade && Number(grade)) {
       this.startingGrade = Number(grade);
     }
-    this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    // this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.words = this.wordService.get2019Words(this.wordGroups);
     this.wordCount = this.words.length;
 
     this.wordsUntried = this.words.slice();
@@ -106,7 +107,8 @@ export class AppComponent implements OnInit {
     }
     localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
 
-    this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    // this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.words = this.wordService.get2019Words(this.wordGroups);
     this.wordCount = this.words.length;
     this.wordsUntried = this.words.slice();
     this.wordsLeft = this.wordsUntried.length;
@@ -116,7 +118,8 @@ export class AppComponent implements OnInit {
   setStartingGrade(): void {
     localStorage.setItem('starting-grade', this.startingGrade.toString());
 
-    this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    // this.words = this.wordService.get2018Words(this.startingGrade, this.wordGroups);
+    this.words = this.wordService.get2019Words(this.wordGroups);
     this.wordCount = this.words.length;
     this.wordsUntried = this.words.slice();
     this.wordsLeft = this.wordsUntried.length;
@@ -307,24 +310,30 @@ export class AppComponent implements OnInit {
 
   resetWordGroups() {
     this.wordGroups = [
-      {name: 'Latin', selected: true},
-      {name: 'Arabic', selected: false},
-      {name: 'Asian', selected: false},
-      {name: 'French', selected: false},
-      {name: 'Eponyms', selected: false},
-      {name: 'German', selected: false},
-      {name: 'Slavic', selected: false},
-      {name: 'Old English', selected: false},
-      {name: 'New World', selected: false},
-      {name: 'Japanese', selected: false},
-      {name: 'Greek', selected: false},
-      {name: 'Frequently Misspelled', selected: false},
-      {name: 'Homonyms', selected: false},
-      {name: 'Commonly Confused', selected: false},
-      {name: 'Other Bees', selected: false},
-      {name: 'Dutch', selected: false},
-      {name: 'Italian', selected: false},
-      {name: 'Spanish', selected: false},
+      {name: 'School One', selected: true},
+      {name: 'School Two', selected: false},
+      {name: 'School Three', selected: false},
+      {name: 'Champions One', selected: false},
+      {name: 'Champions Two', selected: false},
+      {name: 'Champions Three', selected: false},
+      // {name: 'Latin', selected: true},
+      // {name: 'Arabic', selected: false},
+      // {name: 'Asian', selected: false},
+      // {name: 'French', selected: false},
+      // {name: 'Eponyms', selected: false},
+      // {name: 'German', selected: false},
+      // {name: 'Slavic', selected: false},
+      // {name: 'Old English', selected: false},
+      // {name: 'New World', selected: false},
+      // {name: 'Japanese', selected: false},
+      // {name: 'Greek', selected: false},
+      // {name: 'Frequently Misspelled', selected: false},
+      // {name: 'Homonyms', selected: false},
+      // {name: 'Commonly Confused', selected: false},
+      // {name: 'Other Bees', selected: false},
+      // {name: 'Dutch', selected: false},
+      // {name: 'Italian', selected: false},
+      // {name: 'Spanish', selected: false},
     ];
     localStorage.setItem('word-groups', JSON.stringify(this.wordGroups));
   }
