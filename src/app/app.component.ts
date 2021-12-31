@@ -310,7 +310,8 @@ export class AppComponent implements OnInit {
 
   resetWordGroups() {
     this.wordGroups = [
-      {name: 'School One', selected: true},
+      {name: 'Naomi 2021', selected: true},
+      {name: 'School One', selected: false},
       {name: 'School Two', selected: false},
       {name: 'School Three', selected: false},
       {name: 'Champions One', selected: false},
