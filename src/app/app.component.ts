@@ -172,14 +172,19 @@ export class AppComponent implements OnInit {
     localStorage.setItem('spell-current-word', this.currentWord);
   }
 
+  convertToAscii = (word: string): string => {
+    const combiningRegex = /[\u0300-\u036F]/g; 
+    return word.normalize('NFKD').replace(combiningRegex, '').toLowerCase();
+  }
+
   wordChange(word: string) {
     const targetWord: string = this.currentWord;
-    const lowerCaseWord: string = this.currentWord.toLowerCase();
+    const asciiWord: string = this.convertToAscii(this.currentWord);
     const attemptWord: string = word.toLowerCase();
 
-    if (lowerCaseWord === attemptWord) {
+    if (asciiWord === attemptWord) {
       this.wordSpelledCorrectly(targetWord);
-    } else if (lowerCaseWord.startsWith(attemptWord)) { // still spelling, still correct
+    } else if (asciiWord.startsWith(attemptWord)) { // still spelling, still correct
       this.totalScore = this.previousWordsScore + attemptWord.length;
       this.playSoundKeypress();
     } else {
