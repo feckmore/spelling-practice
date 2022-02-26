@@ -197,6 +197,7 @@ export class AppComponent implements OnInit {
 
   wordSpelledCorrectly(word: string) {
     this.showFireworks = true;
+    this.failedWordRun = 0;
     this.clearWord(true);
     this.totalWords += 1;
     this.totalCorrect += 1;
