@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
   wordGroups: WordGroup[];
   dictionaryURL: any;
   playSounds = false;
+  failedWordRun = 0;
 
   // myWords = {};
 
@@ -183,11 +184,13 @@ export class AppComponent implements OnInit {
     const attemptWord: string = word.toLowerCase();
 
     if (asciiWord === attemptWord) {
+      console.log(`success - ascii word: ${asciiWord}, attempted word: ${attemptWord}`);
       this.wordSpelledCorrectly(targetWord);
     } else if (asciiWord.startsWith(attemptWord)) { // still spelling, still correct
       this.totalScore = this.previousWordsScore + attemptWord.length;
       this.playSoundKeypress();
     } else {
+      console.log(`fail - ascii word: ${asciiWord}, attempted word: ${attemptWord}`);
       this.wordSpelledIncorrectly(targetWord);
     }
   }
@@ -209,7 +212,13 @@ export class AppComponent implements OnInit {
   }
 
   wordSpelledIncorrectly(word: string) {
-    this.clearWord(false);
+    this.failedWordRun +=1;
+    let chooseNewWord = false;
+    if (this.failedWordRun > 4) {
+      chooseNewWord = true;
+      this.failedWordRun = 0;
+    }
+    this.clearWord(chooseNewWord);
     this.totalWords += 1;
     this.previousWordsScore -= this.incorrectWordPoints;
     this.totalScore = this.previousWordsScore;
