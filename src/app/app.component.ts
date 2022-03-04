@@ -235,7 +235,7 @@ export class AppComponent implements OnInit {
   async clearWord(newWord: boolean) {
     this.spellingInput.nativeElement.disabled = true;
 
-    await this.delay(1500);
+    await this.delay(500);
     this.spelledWord = '';
     this.spellingInput.nativeElement.disabled = false;
     this.spellingInput.nativeElement.focus();
